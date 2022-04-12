@@ -4,7 +4,7 @@ module.exports = {
      index : async (req,res) =>{
     var newUser;
     try {
-        newUser = await User.create({name:'Tony'});
+        newUser = await User.create({name:'heyy frontend..'});
     } catch (error) {
         console.log('error',error)
         newUser = null
