@@ -1,0 +1,38 @@
+var app = require('../app');
+var debug = require('debug')('octave-backend:server');
+var http = require('http');
+var logger = require('morgan');
+const dataBaseConnection = require('../utils/dataBaseConnection');
+
+/**
+ * Routers
+ */
+const indexRouter = require('../routes/indexRoutes')
+//
+var port = process.env.PORT || 9000;
+
+//
+app.set('port', port);
+
+/**
+ * Use neccessaries
+ */
+ app.use(logger('dev'));
+app.use('/',indexRouter);
+
+/**
+ * Create HTTP server.
+ */
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(app.get('port'),async ()=>{
+
+  await dataBaseConnection();
+
+  console.log('server running on port:'+app.get('port'))
+
+});
