@@ -1,10 +1,6 @@
 const mongoose  = require('mongoose');
 
 
-const dotenv = require("dotenv");
-
-dotenv.config();
-
 const {MONGO_DEVELOPMENT_URL,MONGO_LIVE_URL } = process.env
 
 module.exports =  async function startDBConnection(){
