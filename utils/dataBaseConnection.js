@@ -1,14 +1,14 @@
 const mongoose  = require('mongoose');
 
 
-const {MONGO_DEVELOPMENT_URL,MONGO_LIVE_URL } = process.env
+const {MONGO_DEVELOPMENT_URL, MONGOLIVEURL } = process.env
 
 module.exports =  async function startDBConnection(){
     try {
         const url  = process.env.NODE_ENV === 'production' ?
-             MONGO_LIVE_URL
+             MONGOLIVEURL
         : MONGO_DEVELOPMENT_URL;
-        
+
         mongoose.connect(url, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
