@@ -5,8 +5,8 @@ const {MONGO_DEVELOPMENT_URL, MONGOLIVEURL } = process.env
 
 module.exports =  async function startDBConnection(){
     try {
-        const url  = process.env.NODE_ENV === 'production' ?
-             MONGOLIVEURL
+        const url  = process.env.NODE_ENV === 'development' ?
+             MONGODEVURL
         : MONGO_DEVELOPMENT_URL;
 
         mongoose.connect(url, {
