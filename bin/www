@@ -9,7 +9,7 @@ const dataBaseConnection = require('../utils/dataBaseConnection');
  */
 const indexRouter = require('../routes/indexRoutes')
 //
-var port = process.env.PORT || 9000;
+var port = process.env.PORT;
 
 //
 app.set('port', port);

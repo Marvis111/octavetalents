@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors())
 
-dotenv.config();
+dotenv.config({path:"./config/config.env"});
 
 
 app.use(express.json());

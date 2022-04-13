@@ -8,6 +8,7 @@ module.exports =  async function startDBConnection(){
         const url  = process.env.NODE_ENV === 'production' ?
              MONGO_LIVE_URL
         : MONGO_DEVELOPMENT_URL;
+        
         mongoose.connect(url, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
