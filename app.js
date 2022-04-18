@@ -7,10 +7,18 @@ const dotenv = require("dotenv");
 
 const app = express();
 
-app.use(cors())
+app.use(cors());
 
 dotenv.config({path:"./config/config.env"});
 
+app.use((req,res,next)=>{
+    res.data = {
+        status:"",
+        data:{},
+        statusCode:200
+    }
+    next();
+});
 
 app.use(express.json());
 

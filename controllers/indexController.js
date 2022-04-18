@@ -5,26 +5,24 @@ const {OAuth2Client} = require('google-auth-library');
 
 module.exports = {
      index : async (req,res) =>{
-    var newUser;
-    try {
-        newUser = await User.create({name:'heyy frontend..'});
-    } catch (error) {
-        console.log('error',error)
-        newUser = null
-    }
-    res.send(newUser);
+         res.data.status = "success";
+         res.data.data = {message:"Welcome to octave talent"}
+
+        res.send(res.data);
 },
+signup:async (req,res) =>{
+
+}
+,
 googleAuth: async (req,res,next) =>{
    const {token} = req.body
-
    const ticket = await client.verifyIdToken({
        idToken:token,
        audience:process.env.CLIENTID
    })
    const  user = ticket.getPayload(); 
-   console.log(user)
-
+   console.log(user);
    res.status(201)
-   res.json(user)
+   res.json(user);
 }
 }
