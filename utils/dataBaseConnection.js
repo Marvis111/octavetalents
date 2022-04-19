@@ -6,7 +6,7 @@ const {MONGO_DEVELOPMENT_URL, MONGO_LIVE_URL } = process.env
 module.exports =  async function startDBConnection(){
     try {
         const url  = process.env.NODE_ENV === 'production' ?
-            "mongodb+srv://octave-talents:octave123talents@cluster0.jhoqd.mongodb.net/octave-talents?retryWrites=true&w=majority"
+            MONGO_LIVE_URL
         : MONGO_DEVELOPMENT_URL;
 
         mongoose.connect(url, {
