@@ -3,12 +3,15 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors')
-const dotenv = require("dotenv"),
 expressSession = require('express-session'),
  
 app = express();
 //configure env vars
-dotenv.config();
+
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+  }
+  
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

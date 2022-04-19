@@ -98,7 +98,7 @@ googleAuth: async (req,res,next) =>{
   } catch (error) {
       req.skip = false
       res.statusCode = 403;
-      res.data.data = null;
+      res.data.data = {message:error.message};
     next();
   }
 }
