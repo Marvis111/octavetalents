@@ -15,6 +15,7 @@ module.exports =  async function startDBConnection(){
         })
         const db = mongoose.connection
         db.once("open",()=>{
+            console.log(process.env);
             console.log('Successfully connected to database....');
         })
 
