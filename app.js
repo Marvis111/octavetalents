@@ -18,9 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.use(cors());
-app.use(cookieParser("secretkey"));
+app.use(cookieParser(process.env.SESSION_KEY));
 app.use(expressSession({
-    secret:"secretkey",
+    secret:process.env.SESSION_KEY,
     cookie:{
             maxAge:1000 * 60 * 20,
     },
